@@ -1,0 +1,8 @@
+RewriteEngine On
+
+# redirect all requests to app.php
+
+# RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteCond %{REQUEST_FILENAME} !-d
+# RewriteRule ^(.*)$ app.php?url=$1 [QSA,L]
+RewriteRule ^(.*)$ app.php [L]

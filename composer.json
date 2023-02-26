@@ -1,0 +1,8 @@
+{
+  "require": {
+    "firebase/php-jwt": "^6.4",
+    "fakerphp/faker": "^1.1.4",
+    "ext-pdo": "*",
+    "kreait/firebase-php": "^5.26"
+  }
+}

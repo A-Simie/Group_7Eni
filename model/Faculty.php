@@ -2,7 +2,7 @@
 
 class Faculty
 {
-    const CIS = "Communication And Information Sciences";
+    const CIS = "Communication and Information Sciences";
     const ENGR = "Engineering and Technology";
     const AGRIC = "Agriculture";
     const EDU = "Education";

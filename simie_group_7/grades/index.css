@@ -1,0 +1,32 @@
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  th, td {
+    text-align: left;
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .cgpa-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .cgpa {
+    position: relative;
+  }
+  
+  .cgpa input[type="text"], .cgpa input[type="password"] {
+    width: 100px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    font-size: 18px;
+    padding-right: 24px;
+  }
+  
+  .cgpa .eye-icon {
+    position:
+  

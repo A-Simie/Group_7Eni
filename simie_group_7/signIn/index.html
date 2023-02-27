@@ -3,83 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <title>Preston University LogIn Form</title>
-    <style>
-      * {
-        box-sizing: border-box;
-      }
-
-      body {
-        font-family: Arial, Helvetica, sans-serif;
-        background-color: #f4f4f4;
-      }
-
-      .container {
-        padding-top: 20%;
-        min-width: 550px;
-        max-width: 550px;
-        margin: 0 auto;
-        padding: 20px;
-        background-color: #fff;
-        border-radius: 10px;
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-      }
-      .container h3 {
-        text-align: center;
-        color: #333;
-      }
-
-      h1 {
-        text-align: center;
-        color: #333;
-      }
-
-      input[type="email"],
-      input[type="password"] {
-        width: 100%;
-        padding: 12px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        margin-bottom: 20px;
-      }
-
-      label {
-        display: block;
-        margin-bottom: 5px;
-        font-weight: bold;
-        color: #333;
-      }
-
-      button[type="submit"] {
-        background-color: rgba(22, 34, 57, 0.99);
-        color: #fff;
-        padding: 12px 20px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-      }
-
-      button[type="submit"]:hover {
-        background-color: rgba(29, 54, 99, 0.99);
-      }
-
-      @media screen and (max-width: 600px) {
-        .container {
-          max-width: 100%;
-          padding: 10px;
-          border-radius: 0;
-        }
-
-        input[type="email"],
-        input[type="password"] {
-          margin-bottom: 10px;
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="index.css" />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.0/dist/sweetalert2.min.css"
@@ -87,6 +11,18 @@
     <script src="index.js" defer></script>
   </head>
   <body>
+    <div id="background-wrap">
+      <div class="bubble x1"></div>
+      <div class="bubble x2"></div>
+      <div class="bubble x3"></div>
+      <div class="bubble x4"></div>
+      <div class="bubble x5"></div>
+      <div class="bubble x6"></div>
+      <div class="bubble x7"></div>
+      <div class="bubble x8"></div>
+      <div class="bubble x9"></div>
+      <div class="bubble x10"></div>
+    </div>
     <div class="container">
       <h1>Preston University</h1>
       <form id="loginForm">

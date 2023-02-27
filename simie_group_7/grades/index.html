@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Grades - Higher Institution</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <h1>Grades</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Course</th>
+          <th>Instructor</th>
+          <th>Semester</th>
+          <th>Grade</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Biology</td>
+          <td>Dr. Jane Doe</td>
+          <td>Fall 2022</td>
+          <td>A</td>
+        </tr>
+        <tr>
+          <td>History</td>
+          <td>Prof. John Smith</td>
+          <td>Spring 2022</td>
+          <td>B+</td>
+        </tr>
+        <tr>
+          <td>Chemistry</td>
+          <td>Dr. Emily Johnson</td>
+          <td>Fall 2021</td>
+          <td>A-</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="cgpa-container">
+      <label for="cgpa">CGPA:</label>
+      <div class="cgpa">
+        <input type="text" id="cgpa" name="cgpa" value="3.67" readonly />
+        <span class="eye-icon" onclick="toggleCGPA()">👁️</span>
+      </div>
+    </div>
+
+    <script>
+      function toggleCGPA() {
+        var cgpaInput = document.getElementById("cgpa");
+        var eyeIcon = document.querySelector(".eye-icon");
+        if (cgpaInput.type === "password") {
+          cgpaInput.type = "text";
+          eyeIcon.innerHTML = "👁️";
+        } else {
+          cgpaInput.type = "password";
+          eyeIcon.innerHTML = "👁️";
+        }
+      }
+    </script>
+  </body>
+</html>

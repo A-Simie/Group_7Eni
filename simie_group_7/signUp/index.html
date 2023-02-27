@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Preston University Admission Form</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: #f4f4f4;
+      }
+
+      .container {
+        min-width: 550px;
+        max-width: 550px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+      }
+      .container h3 {
+        text-align: center;
+        color: #333;
+      }
+
+      h1 {
+        text-align: center;
+        color: #333;
+      }
+
+      input[type="text"],
+      input[type="number"],
+      input[type="email"],
+      input[type="password"],
+      select {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        margin-bottom: 20px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+        color: #333;
+      }
+
+      button[type="submit"] {
+        background-color: rgba(22, 34, 57, 0.99);
+        color: #fff;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      button[type="submit"]:hover {
+        background-color: rgba(29, 54, 99, 0.99);
+      }
+
+      @media screen and (max-width: 600px) {
+        .container {
+          max-width: 100%;
+          padding: 10px;
+          border-radius: 0;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="email"],
+        input[type="password"] {
+          margin-bottom: 10px;
+        }
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.0/dist/sweetalert2.min.css"
+    />
+
+    <script src="index.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Preston Admission Form</h1>
+      <form id="signupForm">
+        <label for="name">First Name</label>
+        <input
+          type="text"
+          id="firstName"
+          name="firstName"
+          placeholder="Enter your first name"
+          required
+        />
+
+        <label for="name">Middle Name</label>
+        <input
+          type="text"
+          id="middleName"
+          name="middleName"
+          placeholder="Enter your middle name"
+          required
+        />
+
+        <label for="name">Last Name</label>
+        <input
+          type="text"
+          id="lastName"
+          name="lastName"
+          placeholder="Enter your last name"
+          required
+        />
+
+        <label for="age">Enter Age</label>
+        <input
+          type="number"
+          id="age"
+          name="age"
+          placeholder="Enter your age"
+          required
+        />
+
+        <label for="age">Phone Number</label>
+        <input
+          type="number"
+          id="phoneNumber"
+          name="phoneNumber"
+          placeholder="Enter your Phone Number"
+          required
+        />
+
+        <label for="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Enter your email"
+          required
+        />
+
+        <label for="gender">Gender:</label>
+        <select name="gender" id="gender" required>
+          <option value="">--Choose Gender--</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+
+        <label for="gender">Country:</label>
+        <select name="country" id="country" required>
+          <option value="">--Choose Country--</option>
+        </select>
+
+        <label for="gender">State:</label>
+        <select name="state" id="state" required>
+          <option value="">--Choose State--</option>
+        </select>
+
+        <label for="gender">L.G.A:</label>
+        <select name="lga" id="lga" required>
+          <option value="">--Choose L.G.A--</option>
+        </select>
+
+        <label for="faculty">Faculty</label>
+        <select name="faculty" id="faculty" required>
+          <option value="">--Choose Faculty--</option>
+        </select>
+
+        <label for="gender">Department</label>
+        <select name="department" id="department" required>
+          <option value="">--Choose Department--</option>
+        </select>
+
+        <label for="password">Password</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Enter your password"
+          required
+        />
+
+        <button type="submit">Sign Up</button>
+        <h3>
+          Do you have an account?<a href="../signIn/index.html"> Sign In</a>
+        </h3>
+      </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.0/dist/sweetalert2.min.js"></script>
+  </body>
+</html>

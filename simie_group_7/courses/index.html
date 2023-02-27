@@ -1,0 +1,219 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Payment Page</title>
+    <link rel="stylesheet" href=
+    "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css">
+    </link>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+        
+        body {
+          font-family: Arial, sans-serif;
+          background-color: #fff;
+        margin: 0;
+        padding: 0;
+      }
+
+      .header {
+        background-color: rgba(22, 34, 57, 0.99);
+        color: #fff;
+        padding: 15px;
+        text-align: center;
+      }
+
+      @media screen and (max-width: 950px) {
+        .header .logo {
+          line-height: 50px;
+        }
+      }
+
+      .header .logo {
+        float: left;
+        padding-left: 20px;
+      }
+
+      .header .logo h3 {
+        font-size: 15px;
+        text-transform: uppercase;
+        font-weight: 800;
+        color: #fff;
+      }
+      .header .logo h3 em {
+        font-style: normal;
+        color: #f5a425;
+      }
+
+      .sidebar {
+        width: 200px;
+        height: 100%;
+        position: fixed;
+        top: 70px;
+        left: 0;
+        background-color: #f1f1f1;
+        overflow-x: hidden;
+        padding-top: 20px;
+      }
+
+      .sidebar img {
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 20px;
+        border-radius: 20%;
+        width: 100px;
+        height: 120px;
+      }
+      .sidebar a {
+        display: block;
+        color: #000;
+        padding: 8px 16px;
+        text-decoration: none;
+      }
+
+      .sidebar a.active {
+        background-color: #f5a425;
+        color: white;
+      }
+
+      .main {
+        margin-left: 200px;
+        padding: 20px;
+      }
+  
+        h1 {
+          text-align: center;
+          margin-top: 50px;
+        }
+        .cards {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+      }
+
+        .course {
+          padding: 20px;
+        width: 30%;
+          margin: 20px;
+          border-radius: 5px;
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+          transition: background-color 0.3s ease;
+          cursor: pointer;
+        }
+  
+        .course:nth-child(1) {
+          background-color: #ff9aa2;
+        }
+  
+        .course:nth-child(2) {
+          background-color: #c57c77;
+        }
+  
+        .course:nth-child(3) {
+          background-color: #ffdac1;
+        }
+  
+        .course:nth-child(4) {
+          background-color: #e2f0cb;
+        }
+  
+        .course:nth-child(5) {
+          background-color: #b5ead7;
+        }
+  
+        .course:nth-child(6) {
+          background-color: #c7ceea;
+        }
+  
+        .course:hover {
+          background-color: #ddd;
+        }
+  
+        .course h2 {
+          color: rgb(85, 85, 85);
+        }
+  
+        .course p {
+          margin-top: 10px;
+          color: rgb(19, 16, 16);
+        }
+      </style>
+  </head>
+  <body>
+        <!-- Header -->
+        <div class="header">
+          <div class="logo">
+            <h3><em>PRESTON </em> UNIVERSITY</h3>
+          </div>
+          <h1>Student Dashboard</h1>
+        </div>
+    
+        <!-- Sidebar -->
+        <div class="sidebar">
+          <img src="https://i.ibb.co/LrqjQ4d/student.png" alt="Profile Picture" />
+          <a  href="../dashboard/index.html"
+            ><i class="fas fa-tachometer-alt"></i> Dashboard</a
+          >
+          <a  class="active" href="../courses/index.html" ><i class="fas fa-book"></i> Courses</a>
+          <a href="#grades"><i class="fas fa-chart-bar"></i> Grades</a>
+          <a href="../payment/index.html"><i class="fa-solid fa-wallet"></i> Payment</a>
+          <a href="#settings"><i class="fas fa-cog"></i> Settings</a>
+          <a href="../signIn/index.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </div>
+        <!-- Main content -->
+        <div class="main">
+          <h2>Courses</h2>
+       
+          <div>
+            <div class="cards">
+                <div class="course">
+                    <h2>Introduction to Computer Science</h2>
+                    <p>
+                      This course covers the basics of computer programming and computer
+                      systems.
+                    </p>
+                  </div>
+                  <div class="course">
+                    <h2>Data Structures and Algorithms</h2>
+                    <p>
+                      This course covers the design and implementation of data structures
+                      and algorithms used in computer programming.
+                    </p>
+                  </div>
+                  <div class="course">
+                    <h2>Operating Systems</h2>
+                    <p>
+                      This course covers the fundamental concepts of operating systems and
+                      how they manage computer resources.
+                    </p>
+                  </div>
+            </div>
+            <div class="cards">
+                <div class="course">
+                    <h2>Database Systems</h2>
+                    <p>
+                      This course covers the design and implementation of database systems
+                      used in computer programming.
+                    </p>
+                  </div>
+                  <div class="course">
+                    <h2>Computer Networks</h2>
+                    <p>
+                      This course covers the design and implementation of computer networks
+                      used in computer systems.
+                    </p>
+                  </div>
+                  <div class="course">
+                    <h2>Artificial Intelligence</h2>
+                    <p>
+                      This course covers the concepts and methods used in developing
+                      intelligent computer systems.
+                    </p>
+                  </div>
+            </div>
+          </div>
+
+    
+  </body>
+</html>

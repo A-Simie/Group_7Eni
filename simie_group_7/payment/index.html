@@ -5,9 +5,14 @@
     <link rel="stylesheet" href=
     "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css">
     </link>
+     <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.0/dist/sweetalert2.min.css"
+  />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="index.css" />
+    <script src="index.js" defer ></script>
   </head>
   <body>
         <!-- Header -->
@@ -34,13 +39,23 @@
         <div class="main">
           <h2>Payment Page</h2>
           <div class="row">
-         
+            <form id="formdata">
                 <div class="payment-form">
+                  <div>
+                    <div class="cards">
+                      <img id="visa" src="../assets/images/visa-logo.png" />
+                      <img id="mastercard" src="../assets/images/mastercard-logo.png" />
+                      <img id="verve" src="../assets/images/verve-logo.png" />
+             
+                    </div>
+                  </div>
                     <label for="card-number">Card Number</label>
                     <input
-                      type="number"
+                      type="text"
                       id="card-number"
                       name="card-number"
+                      pattern="[0-9 ]{19}"
+                       maxlength="19"
                       onkeyup="showCardLogo()"
                       required
                     />
@@ -52,55 +67,28 @@
                     </div>
               
                     <label for="card-holder-name">Cardholder Name</label>
-                    <input type="text" id="card-holder-name" name="card-holder-name" />
+                    <input type="text" id="card-holder-name" name="card-holder-name" required />
               
                     <label for="expiry-date">Expiry Date</label>
-                    <input type="number" id="expiry-date" name="expiry-date" required />
+                    <input type="text" id="expiry-date" name="expiry-date" 
+                    pattern="[0-9/ ]{9}"
+                    required />
               
                     <label for="cvv">CVV</label>
-                    <input type="number" id="cvv" name="cvv" required />
+                    <input type="text" id="cvv" name="cvv" 
+                    pattern="[0-9]{3}"
+                    maxlength="3" required />
               
-                    <button type="submit">Pay Now</button>
+                    <button id="paymentSubmitted" type="submit">Pay Now</button>
                   </div>
       
         
-        </div>
+                </form>
+              </div>
         
       
 
-    <script>
-      function showCardLogo() {
-        const cardNumberInput = document.getElementById("card-number");
-        const cardLogoContainer = document.querySelector(".card-logo");
-        const visaLogo = document.getElementById("visa-logo");
-        const mastercardLogo = document.getElementById("mastercard-logo");
-        const verveLogo = document.getElementById("verve-logo");
-
-        const cardNumber = cardNumberInput.value;
-        const visaPattern = /^4/;
-        const mastercardPattern = /^5[1-5]/;
-        const vervePattern =
-          /^506[0-9]{2}|^507[0-8][0-9]|^50[6-9][0-9]{3}|^5[1-5][0-9]{4}|^222[1-9]|^22[3-9][0-9]|^2[3-6][0-9]{2}|^27[01][0-9]|^2720/;
-
-        if (visaPattern.test(cardNumber)) {
-          cardLogoContainer.style.display = "block";
-          visaLogo.style.display = "block";
-          mastercardLogo.style.display = "none";
-          verveLogo.style.display = "none";
-        } else if (mastercardPattern.test(cardNumber)) {
-          cardLogoContainer.style.display = "block";
-          mastercardLogo.style.display = "block";
-          visaLogo.style.display = "none";
-          verveLogo.style.display = "none";
-        } else if (vervePattern.test(cardNumber)) {
-          cardLogoContainer.style.display = "block";
-          verveLogo.style.display = "block";
-          visaLogo.style.display = "none";
-          mastercardLogo.style.display = "none";
-        } else {
-          cardLogoContainer.style.display = "none";
-        }
-      }
-    </script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.0/dist/sweetalert2.min.js"></script>
+ 
   </body>
 </html>

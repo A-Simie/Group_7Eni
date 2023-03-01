@@ -45,3 +45,14 @@ var myChart = new Chart(ctx, {
     ],
   },
 });
+
+var timer = setTimeout(function () {}, 60000);
+document.addEventListener("mousemove", resetTimer);
+document.addEventListener("keypress", resetTimer);
+
+function resetTimer() {
+  clearTimeout(timer);
+  timer = setTimeout(function () {
+    window.location.href = "../signIn/index.html"; // Redirect user to logout page
+  }, 60000);
+}

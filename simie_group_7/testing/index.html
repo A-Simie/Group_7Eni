@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.0/dist/sweetalert2.min.css"
+  />
+  <head>
+    <title>Student Admission</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      .container {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      .card {
+        background-color: #99390c;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+
+      .card-header {
+        padding: 10px;
+        background-color: #c70d3a;
+        color: white;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+      }
+
+      .card-header h2 {
+        margin-top: 0;
+        margin-bottom: 5px;
+        font-family: "Montserrat", Geneva, Tahoma, sans-serif;
+      }
+
+      .card-header p {
+        margin: 0;
+        margin-bottom: 5px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+      }
+
+      .card-content {
+        padding: 10px;
+        color: #444;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+      }
+
+      .expand-btn {
+        background-color: #4caf50;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        cursor: pointer;
+        margin-left: 10px;
+        color: white;
+        transition: all 0.2s ease-in-out;
+        margin-top: 15px;
+        margin-bottom: 5px;
+      }
+
+      .expand-btn:hover {
+        transform: scale(1.1);
+      }
+
+      .card-details {
+        display: none;
+        margin-top: 10px;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        color: #fff;
+        background-color: #c70d3a;
+      }
+
+      .card.expanded .card-details {
+        display: block;
+      }
+
+      .approve-btn,
+      .decline-btn {
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        margin-right: 10px;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+        margin-top: 15px;
+        margin-bottom: 5px;
+      }
+
+      .approve-btn:hover,
+      .decline-btn:hover {
+        transform: scale(1.1);
+      }
+
+      .decline-btn {
+        background-color: #f44336;
+      }
+
+      button:focus {
+        outline: none;
+      }
+
+      .loader {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.8);
+        z-index: 9999;
+      }
+
+      .loader:after {
+        content: "";
+        display: block;
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        border: 6px solid #eee;
+        border-top-color: #3498db;
+        animation: spin 1s ease-in-out infinite;
+      }
+
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Student Admission</h1>
+      <div class="student-cards"></div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.0/dist/sweetalert2.min.js"></script>
+
+    <script>
+      const students = [
+        {
+          name: "Eniola Ibitomihi",
+          faculty: "Communication And Information Sciences",
+          department: "Computer Science",
+          address: "123 Main St.",
+          city: "Anytown",
+          state: "CA",
+          zip: "12345",
+          phone: "555-555-1212",
+          email: "EniolaIbitomihi@example.com",
+        },
+        {
+          name: "John Peter",
+          faculty: "Communication And Information Sciences",
+          department: "Computer Science",
+          address: "123 Main St.",
+          city: "Anytown",
+          state: "CA",
+          zip: "12345",
+          phone: "555-555-1212",
+          email: "johndoe@example.com",
+        },
+        {
+          name: "Jane Smith",
+          faculty: "Business",
+          department: "Marketing",
+          address: "456 Maple St.",
+          city: "Anytown",
+          state: "CA",
+          zip: "12345",
+          phone: "555-555-1212",
+          email: "janesmith@example.com",
+        },
+        {
+          name: "Bob Johnson",
+          faculty: "Arts",
+          department: "Music",
+          address: "789 Oak St.",
+          city: "Anytown",
+          state: "CA",
+          zip: "12345",
+          phone: "555-555-1212",
+          email: "bobjohnson@example.com",
+        },
+      ];
+
+      const studentCards = document.querySelector(".student-cards");
+
+      students.forEach((student) => {
+        const card = document.createElement("div");
+        card.classList.add("card");
+
+        const cardContent = document.createElement("div");
+        cardContent.classList.add("card-content");
+
+        const cardHeader = document.createElement("div");
+        cardHeader.classList.add("card-header");
+
+        const name = document.createElement("h2");
+        name.textContent = student.name;
+
+        const faculty = document.createElement("p");
+        faculty.textContent = `Faculty: ${student.faculty}`;
+
+        const department = document.createElement("p");
+        department.textContent = `Department: ${student.department}`;
+
+        const expandButton = document.createElement("button");
+        expandButton.classList.add("expand-btn");
+        expandButton.textContent = "Expand";
+        expandButton.addEventListener("click", () => {
+          card.classList.toggle("expanded");
+        });
+
+        const cardDetails = document.createElement("div");
+        cardDetails.classList.add("card-details");
+
+        const address = document.createElement("p");
+        address.textContent = `Address: ${student.address}`;
+
+        const city = document.createElement("p");
+        city.textContent = `City: ${student.city}`;
+
+        const state = document.createElement("p");
+        state.textContent = `State: ${student.state}`;
+
+        const zip = document.createElement("p");
+        zip.textContent = `Zip: ${student.zip}`;
+
+        const phone = document.createElement("p");
+        phone.textContent = `Phone: ${student.phone}`;
+
+        const email = document.createElement("p");
+        email.textContent = `Email: ${student.email}`;
+
+        const approveButton = document.createElement("button");
+        approveButton.classList.add("approve-btn");
+        approveButton.textContent = "APPROVE ADMISSION";
+        approveButton.addEventListener("click", () => {
+          const loader = document.createElement("div");
+          loader.classList.add("loader");
+          document.body.appendChild(loader);
+
+          setTimeout(() => {
+            loader.remove();
+            Swal.fire({
+              icon: "success",
+              title: "Admission Successfully Approved",
+              timer: 2000,
+            }).then(() => card.remove());
+          }, 3000);
+        });
+
+        const declineButton = document.createElement("button");
+        declineButton.classList.add("decline-btn");
+        declineButton.textContent = "DECLINE ADMISSION";
+        declineButton.addEventListener("click", () => {
+          const loader = document.createElement("div");
+          loader.classList.add("loader");
+          document.body.appendChild(loader);
+
+          setTimeout(() => {
+            loader.remove();
+            Swal.fire({
+              icon: "error",
+              title: "Admission Successfully Declined",
+              timer: 1500,
+            }).then(() => card.remove());
+          }, 4000);
+        });
+
+        cardHeader.appendChild(name);
+        cardHeader.appendChild(faculty);
+        cardHeader.appendChild(department);
+        cardHeader.appendChild(expandButton);
+
+        cardDetails.appendChild(address);
+        cardDetails.appendChild(city);
+        cardDetails.appendChild(state);
+        cardDetails.appendChild(zip);
+        cardDetails.appendChild(phone);
+        cardDetails.appendChild(email);
+
+        cardContent.appendChild(cardHeader);
+        cardContent.appendChild(cardDetails);
+        cardContent.appendChild(approveButton);
+        cardContent.appendChild(declineButton);
+
+        card.appendChild(cardContent);
+
+        studentCards.appendChild(card);
+      });
+    </script>
+  </body>
+</html>

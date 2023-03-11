@@ -187,6 +187,26 @@
         color: #fff;
         background-color: #c70d3a;
       }
+      .payment-aligns{
+         display: flex;
+         flex-direction: column;
+          align-items: center;
+      }
+      .payment-status {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background-color: rgb(255, 255, 255);
+      margin-bottom: 10px;
+      
+      }
+      .payment-aligns .payment-status  p{
+        color: #06ad22;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: larger;
+        font-weight: 900;
+        padding: 30%  0 30% 0;
+      }
 
       .card.expanded .card-details {
         display: block;
@@ -248,10 +268,6 @@
           transform: rotate(360deg);
         }
       }
-    
-
-     
-    
 
     </style>
     
@@ -273,10 +289,10 @@
       <a href="../adminDashboard/"
         ><i class="fas fa-tachometer-alt"></i>Admin Dashboard</a
       >
-      <a  class="active" href="./admissionList.html"><i class="fas fa-book"></i> Admission List</a>
+      <a   href="./admissionList.html"><i class="fas fa-book"></i> Admission List</a>
       <a href="./facultyDepartment.html"><i class="fas fa-chart-bar"></i> Faculty/Department</a>
-      <a href="./studentPayment.html"><i class="fa-solid fa-wallet"></i> Payment</a>
-      <a href="./adminSettings.html"><i class="fas fa-cog"></i> Settings</a>
+      <a class="active" href="./studentPayment.html"><i class="fa-solid fa-wallet"></i> Payment</a>
+      <a  href="./adminSettings.html"><i class="fas fa-cog"></i> Settings</a>
       <a href="../signIn/index.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
     </div>
     <!-- Main content -->
@@ -398,6 +414,16 @@
         const cardDetails = document.createElement("div");
         cardDetails.classList.add("card-details");
 
+        const paymentAlign= document.createElement("div");
+        paymentAlign.classList.add("payment-aligns");
+
+        const paymentStatus = document.createElement("div");
+        paymentStatus.classList.add("payment-status");
+
+        
+        const paidStatus = document.createElement("p");
+        paidStatus.textContent ="PAID";
+
         const address = document.createElement("p");
         address.textContent = `Address: ${student.address}`;
 
@@ -416,42 +442,12 @@
         const email = document.createElement("p");
         email.textContent = `Email: ${student.email}`;
 
-        const approveButton = document.createElement("button");
-        approveButton.classList.add("approve-btn");
-        approveButton.textContent = "APPROVE ADMISSION";
-        approveButton.addEventListener("click", () => {
-          const loader = document.createElement("div");
-          loader.classList.add("loader");
-          document.body.appendChild(loader);
 
-          setTimeout(() => {
-            loader.remove();
-            Swal.fire({
-              icon: "success",
-              title: "Admission Successfully Approved",
-              timer: 2000,
-            }).then(() => card.remove());
-          }, 3000);
-        });
+        paymentStatus.appendChild(paidStatus);
 
-        const declineButton = document.createElement("button");
-        declineButton.classList.add("decline-btn");
-        declineButton.textContent = "DECLINE ADMISSION";
-        declineButton.addEventListener("click", () => {
-          const loader = document.createElement("div");
-          loader.classList.add("loader");
-          document.body.appendChild(loader);
+        paymentAlign.appendChild(paymentStatus);
 
-          setTimeout(() => {
-            loader.remove();
-            Swal.fire({
-              icon: "error",
-              title: "Admission Successfully Declined",
-              timer: 1500,
-            }).then(() => card.remove());
-          }, 4000);
-        });
-
+        cardHeader.appendChild(paymentAlign);
         cardHeader.appendChild(name);
         cardHeader.appendChild(faculty);
         cardHeader.appendChild(department);
@@ -466,8 +462,6 @@
 
         cardContent.appendChild(cardHeader);
         cardContent.appendChild(cardDetails);
-        cardContent.appendChild(approveButton);
-        cardContent.appendChild(declineButton);
 
         card.appendChild(cardContent);
 
